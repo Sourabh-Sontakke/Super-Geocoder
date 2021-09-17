@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Super Geocoder</title>
+    <head>
+        <link href="../static/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+        <h1>Super Geocoder</h1>
+        <h3>Please upload a csv file that contains <i>Pincode</i> column in it.</h3>
+        <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+            <input type="file" accept=".csv" name="csv_file"> <br>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="output">
+        <center>{{table | safe}}</center>
+        {% if button %}
+        {% include button %}
+        {% endif %}
+        <div class="message">
+            {{msg | safe}}
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
